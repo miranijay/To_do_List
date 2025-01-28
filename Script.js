@@ -2,14 +2,12 @@ const inputbox = document.querySelector("#input-box");
 const addbtn = document.querySelector("#addbtn");
 const todolist = document.querySelector(".todolist");
 
-
 let edittodo = null
-
 
 const addtodo = () => {
     const val = inputbox.value.trim();
 
-    if (val.length <= 0) {
+    if (val.length <= 0 || val === " ") {
         alert("Please enter a task");
         return false;
     }
@@ -21,10 +19,7 @@ const addtodo = () => {
         edittodo.target.previousElementSibling.innerHTML = val
         addbtn.value = "Add"
         addbtn.innerHTML = "Add"
-        inputbox.value = ""
-
-        
-
+        inputbox.value = "" 
     } 
     else
     {
@@ -51,11 +46,7 @@ const addtodo = () => {
 
         savelocaltodo(val)
     }
-
-
-
 }
-
 
 //Update function for edit and delete button actions
 const updateTodo = (e) => {
@@ -73,9 +64,7 @@ const updateTodo = (e) => {
         addbtn.value = "Edit";
         addbtn.innerHTML = "Edit"
         edittodo = e;
-
     }
-
 }
 
 //Save todo list to Local Storage
@@ -133,7 +122,6 @@ const dellocaltodo = (todo) => {
     } else {
         todos = JSON.parse(localStorage.getItem("todos"))
     }
-
     let todotext = todo.children[0].innerHTML;
     let todoindex = todos.indexOf(todotext)
     todos.splice(todoindex, 1)
