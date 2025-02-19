@@ -15,7 +15,6 @@ const addtodo = () => {
     if (addbtn.value === "Edit") {
         // Passing the original text to editLocalTodos function before edit it in the todoList
         editlocaltodo(edittodo.target.previousElementSibling.innerHTML);
-        
         edittodo.target.previousElementSibling.innerHTML = val
         addbtn.value = "Add"
         addbtn.innerHTML = "Add"
@@ -77,7 +76,6 @@ const savelocaltodo = (todo) => {
     }
     todos.push(todo)
     localStorage.setItem("todos", JSON.stringify(todos))
-
 }
 
 //Get todo list from localStorage 
@@ -97,7 +95,6 @@ const getlocaltodo = () => {
             li.appendChild(p);
             todolist.appendChild(li);
             
-        
             //Creating Edit button
             const editbtn = document.createElement("button")
             editbtn.innerHTML = "Edit"
@@ -109,7 +106,6 @@ const getlocaltodo = () => {
             delbtn.innerHTML = "Delete"
             delbtn.classList.add("delbtn")
             li.appendChild(delbtn)
-
         });
     }
 }
