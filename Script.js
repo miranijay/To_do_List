@@ -8,6 +8,7 @@ const addtodo = () => {
     const val = inputbox.value.trim();
 
     if (val.length <= 0 || val === "" || !val) {
+        inputbox.value = "";
         alert("Please enter a task");
         return false;
     }
